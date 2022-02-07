@@ -210,4 +210,4 @@ async def r8ck(ctx):
 
 
 #please add the token
-client.run('')
+client.run('OTM1NTcxODgwMjg5NjQwNTM4.YfAlNg.If5GsLZdy6uOlHEFQpfIk-0jTww')
