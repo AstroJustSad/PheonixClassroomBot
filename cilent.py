@@ -93,7 +93,7 @@ async def ban(ctx,member:discord.Member, * ,reason='was struck by the ban Hammer
     await ctx.send(embed=embed)
     await member.ban(reason=reason)
     
-@client.command()
+@cilent.command()
 async def hello(ctx):
     helloEmbed = discord.Embed(title="Hello :wave:", description=f"Hi there {ctx.author.mention}", color = ctx.author.color)
     helloEmbed.set_thumbnail(url=f"{ctx.author.avatar_url}")
@@ -102,7 +102,7 @@ async def hello(ctx):
     await ctx.send(embed=helloEmbed)
     
 
-@client.command(description="Give direct access links for students.")
+@cilent.command(description="Give direct access links for students.")
 async def dlink(ctx):
     dlinkEmbed = discord.Embed(title="Direct Links", description=f"Give direct links for students to easily navigate", color = ctx.author.color)
     dlinkEmbed.add_field(name="Pheonix Classroom - ", value="https://bit.ly/3uLryiT")
