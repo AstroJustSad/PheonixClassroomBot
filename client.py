@@ -1,8 +1,6 @@
 #important v8.91 is set for 19 of Eb 2022
-
 from cProfile import label
 from tabnanny import check
-
 import discord
 import distutils
 import random
@@ -37,17 +35,17 @@ from datafile import lyrics
 from datafile import url
 
 #get commands 
-import commands
-from commands import h,hv,w,wv,g,gv,m,mv,r,rv,p,pv,E,Ev
+import commands1
+from commands1 import h,hv,w,wv,g,gv,m,mv,r,rv,p,pv,E,Ev
 
 
 #bot code
 #Version 8.90
-client = commands.Bot (command_prefix=commands.when_mentioned_or('-'))
-client.remove_command('help')
+cilent = commands.Bot (command_prefix=commands.when_mentioned_or('-'))
+cilent.remove_command('help')
 
 #help command for the bot 
-@client.command('help')
+@cilent.command('help')
 async def help (ctx):
     random_color=random.choice(color1)
     embed=discord.Embed (tilte='Pheonix classroom',description=description,color=random_color)
@@ -63,27 +61,27 @@ async def help (ctx):
     await ctx.send(embed=embed)
 
 #ready
-@client.event
+@cilent.event
 async def on_ready():
     botstatus=random.choice(bs)
-    await client.change_presence(status=discord.Status.dnd,activity=discord.Game(botstatus))
+    await cilent.change_presence(status=discord.Status.dnd,activity=discord.Game(botstatus))
     print('Client online')
  
 
 
 #join
-@client.event 
+@cilent.event 
 async def on_member_join(member:discord.Member):
     print(f'{member}has joined the server.')
    
 #leave
-@client.event 
+@cilent.event 
 async def on_member_remove(member):
     print(f'{member}has left the server.')
 
 #kick ban v1.1
 #need to fix embed gif that shows up in next update v8.99
-@client.command(aliases=['B'])
+@cilent.command(aliases=['B'])
 async def ban(ctx,member:discord.Member, * ,reason='was struck by the ban Hammer'):
     random_color=random.choice(color1)
     embed=discord.Embed(title='User Ban',description=member.mention,color=random_color())
@@ -93,7 +91,7 @@ async def ban(ctx,member:discord.Member, * ,reason='was struck by the ban Hammer
     await ctx.send(embed=embed)
     await member.ban(reason=reason)
     
-@client.command()
+@cilent.command()
 async def hello(ctx):
     helloEmbed = discord.Embed(title="Hello :wave:", description=f"Hi there {ctx.author.mention}", color = ctx.author.color)
     helloEmbed.set_thumbnail(url=f"{ctx.author.avatar_url}")
@@ -102,7 +100,7 @@ async def hello(ctx):
     await ctx.send(embed=helloEmbed)
     
 
-@client.command(description="Give direct access links for students.")
+@cilent.command(description="Give direct access links for students.")
 async def dlink(ctx):
     dlinkEmbed = discord.Embed(title="Direct Links", description=f"Give direct links for students to easily navigate", color = ctx.author.color)
     dlinkEmbed.add_field(name="Pheonix Classroom - ", value="https://bit.ly/3uLryiT")
@@ -112,7 +110,7 @@ async def dlink(ctx):
     await ctx.send(embed=dlinkEmbed)
     
     
-@client.command(alieases=['K'])
+@cilent.command(alieases=['K'])
 async def kick(ctx,member:discord.Member, *,reason='was removed from the server'):
     random_color=random.choice(color1)
     embed=discord.Embed(title='User kick',description=member.mention,color=random_color)
@@ -124,7 +122,7 @@ async def kick(ctx,member:discord.Member, *,reason='was removed from the server'
 
 
 #whois v1.3
-@client.command(aliases=['user','info'])
+@cilent.command(aliases=['user','info'])
 async def whois(ctx,*,member:discord.Member):
     random_color=random.choice(color1)
     
@@ -138,7 +136,7 @@ async def whois(ctx,*,member:discord.Member):
 
 
 #meme command (do not touch, there are rick rolls ) v1.7
-@client.command()
+@cilent.command()
 async def meme(ctx):
     random_color=random.choice(color1)
     embed=discord.Embed(color=random_color)
@@ -152,7 +150,7 @@ async def meme(ctx):
     await ctx.send(embed=embed)
 
 
-@client.command()
+@cilent.command()
 async def gif(ctx):
     random_color=random.choice(color1)
     embed=discord.Embed(color=random_color)
@@ -167,14 +165,14 @@ async def gif(ctx):
 
  
 #ping
-@client.command()
+@cilent.command()
 async def ping(ctx):
-    await ctx.send (f'Pong Your ping is {round(client.latency *1000)}ms.'
+    await ctx.send (f'Pong Your ping is {round(cilent.latency *1000)}ms.'
     '\n If your ping is above 600 your definitly on airtel')
 
 
 #announce 
-@client.command()
+@cilent.command()
 async def announce(ctx, channel: discord.TextChannel, * ,message):
     await ctx.send('Loading')
     await channel.send(f'{message}')
@@ -182,13 +180,13 @@ async def announce(ctx, channel: discord.TextChannel, * ,message):
 
 
 #8ball v1.01
-@client.command(aliases=['8ball','8b',])
+@cilent.command(aliases=['8ball','8b',])
 async def eightball(ctx, * ,question):   
     
     await ctx.send(f':8ball: Question:{question}\n:8ball: Answer: {random.choice(ballresponses)}')
 
 #member rater 
-@client.command()
+@cilent.command()
 async def rate(ctx):
     random_color=random.choice(color1)
     embed=discord.Embed(title='Your rating:',description=f'{random.choice(rating)}',color=random_color)
@@ -197,7 +195,7 @@ async def rate(ctx):
 
 
 #rick roll 
-@client.command(aliases=['dm','Secret'])
+@cilent.command(aliases=['dm','Secret'])
 async def r8ck(ctx):
     random_color=random.choice(color1)
     random_url=random.choice(url)
@@ -209,5 +207,5 @@ async def r8ck(ctx):
 
 
 
-#please add the token
-client.run('OTM1NTcxODgwMjg5NjQwNTM4.YfAlNg.If5GsLZdy6uOlHEFQpfIk-0jTww')
+
+cilent.run('OTM1NTcxODgwMjg5NjQwNTM4.YfAlNg.If5GsLZdy6uOlHEFQpfIk-0jTww')
