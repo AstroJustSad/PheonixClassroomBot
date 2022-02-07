@@ -208,4 +208,4 @@ async def r8ck(ctx):
 
 
 
-cilent.run('OTM1NTcxODgwMjg5NjQwNTM4.YfAlNg.If5GsLZdy6uOlHEFQpfIk-0jTww')
+cilent.run('')
