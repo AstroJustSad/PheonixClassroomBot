@@ -1,5 +1,6 @@
 #important v8.91 is set for 19 of Eb 2022
 from cProfile import label
+from lib2to3.pgen2 import token
 from tabnanny import check
 import discord
 import distutils
@@ -41,6 +42,7 @@ from commands1 import h,hv,w,wv,g,gv,m,mv,r,rv,p,pv,E,Ev
 
 #bot code
 #Version 8.90
+token=('') #please insert the token
 cilent = commands.Bot (command_prefix=commands.when_mentioned_or('-'))
 cilent.remove_command('help')
 
@@ -79,17 +81,22 @@ async def on_member_join(member:discord.Member):
 async def on_member_remove(member):
     print(f'{member}has left the server.')
 
-#kick ban v1.1
-#need to fix embed gif that shows up in next update v8.99
-@cilent.command(aliases=['B'])
-async def ban(ctx,member:discord.Member, * ,reason='was struck by the ban Hammer'):
-    random_color=random.choice(color1)
-    embed=discord.Embed(title='User Ban',description=member.mention,color=random_color())
-    embed.add_field(name='Member',value=reason,inline=True)
-    embed.set_image(url=banembed)
-    embed.set_thumbnail(url=member.avatar_url)
-    await ctx.send(embed=embed)
-    await member.ban(reason=reason)
+
+#mute  
+@cilent.command(aliases=['m'])
+@commands.has_permissions(kick_members=True)
+async def mute(ctx,member:discord.Member):
+    muted_role=ctx.guild.get_role(852770025521807400)
+    await member.add_roles(muted_role)
+    await ctx.send(f'{member.mention}Has been muted')
+
+#unmute 
+@cilent.command(aliases=['um'])
+@commands.has_permissions(kick_members=True)
+async def umute(ctx,member:discord.Member):
+    muted_role=ctx.guild.get_role(852770025521807400)
+    await member.remove_roles(muted_role)
+    await ctx.send(f'{member.mention}has been unmuted')
     
 @cilent.command()
 async def hello(ctx):
@@ -208,4 +215,4 @@ async def r8ck(ctx):
 
 
 
-cilent.run('')
+cilent.run(token)
